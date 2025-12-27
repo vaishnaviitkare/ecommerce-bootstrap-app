@@ -1,0 +1,13 @@
+.con-body{
+   background-color: grey;
+   margin-top: 2px;
+   width:100%;
+   min-height: 180px;
+}
+div p{
+    text-align: center;
+    color: white;
+    font-family: serif;
+    font-size: 80px;
+    font-weight: bold;
+}
