@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import CardBody from './components/CardBody';
 import Store from './components/Store';
+import Footer from './components/Footer';
 /*
 React Bootstrap configuration
 */
