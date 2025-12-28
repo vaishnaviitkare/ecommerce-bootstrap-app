@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import './Header.css';
+import { ModalCon } from "../Context/ModalContext";
 import { Navbar, Nav, Container, Button} from "react-bootstrap";
-const Header=()=>{
+const Header=(props)=>{
+const {openModal}=useContext(ModalCon);
    return(
     <div>
     <Navbar bg="dark" variant="dark" expand="md">
@@ -24,6 +26,7 @@ const Header=()=>{
         <Button
           variant="outline-info"
           className="position-absolute end-0 me-4"
+          onClick={openModal}
         >
           cart <span className="ms-1">0</span>
         </Button>
