@@ -19,8 +19,9 @@ function App() {
       <Header/>
       <CardBody/>
       <Store/>
-      <Footer/>
       {val && <CartForm/>}
+      <Footer/>
+     
     </div>
   );
 }

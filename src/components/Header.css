@@ -3,3 +3,12 @@
   color:white;
   font-size: 17px;
 }
+.navb{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+.div1{
+  min-width: 70px;
+  max-height: auto;
+}

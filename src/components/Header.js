@@ -5,8 +5,8 @@ import { Navbar, Nav, Container, Button} from "react-bootstrap";
 const Header=(props)=>{
 const {openModal}=useContext(ModalCon);
    return(
-    <div>
-    <Navbar bg="dark" variant="dark" expand="md">
+    <div className="div1">
+    <Navbar className="navb" bg="dark" variant="dark" expand="md" fixed="top"> 
       <Container fluid className="px-2">
         
         {/* Center Menu */}
@@ -33,8 +33,7 @@ const {openModal}=useContext(ModalCon);
 
       </Container>
     </Navbar>
-    
-    </div>
+  </div>
    )
 }
 export default Header;
