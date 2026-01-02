@@ -2,14 +2,15 @@ import React,{useContext} from "react";
 import "./Store.css";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { DataCon } from "../Context/DataContext";
-const Store = () => {
- const {data}=useContext(DataCon);
+const Store = (props) => {
+ const {addToCart}=useContext(DataCon);
+ const {productsArr}=useContext(DataCon);
   return (
     <Container className="my-5">
       <h2 className="text-center mb-4">MUSIC</h2>
 
       <Row className="products-row">
-        {data.map((product) => (
+        {productsArr.map((product) => (
           <Col key={product.id} md={6} className="d-flex justify-content-center product-col">
             <Card style={{ width: "18rem" }} className="text-center border-0">
               <Card.Title className="mt-3">
@@ -25,7 +26,7 @@ const Store = () => {
 
               <Card.Body className="d-flex justify-content-between align-items-center">
                 <span>${product.price}</span>
-                <Button variant="info">ADD TO CART</Button>
+                <Button variant="info" onClick={() => addToCart(product)}>ADD TO CART</Button>
               </Card.Body>
             </Card>
           </Col>

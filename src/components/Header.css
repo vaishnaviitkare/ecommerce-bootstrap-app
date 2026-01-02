@@ -12,3 +12,7 @@
   min-width: 70px;
   max-height: auto;
 }
+.cart-button{
+  color: rgb(74, 192, 228);
+  margin-top: -38px;
+}

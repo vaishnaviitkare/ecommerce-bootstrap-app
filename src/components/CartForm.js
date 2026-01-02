@@ -2,12 +2,12 @@ import React,{useContext}from "react";
 import { ModalCon } from "../Context/ModalContext";
 import "./CartForm.css";
 import { DataCon } from "../Context/DataContext";
-const CartBody=()=>{
+const CartForm=()=>{
     const {val}=useContext(ModalCon);
     const {closeModal}=useContext(ModalCon);
     const {data}=useContext(DataCon);
     const totaldata=data.reduce((sum,item)=>{
-       return sum=sum+(item.price*1);
+       return sum+(item.price*item.quantity);
     },0)
     return(
    <div className={`cart-panel ${val ? "open" : ""}`}>
@@ -28,7 +28,7 @@ const CartBody=()=>{
          <span>{item.title}</span>
         </div>
          <span>${item.price}</span>
-         <span>{1}</span>
+         <span>{item.quantity}</span>
          <button className="remove">REMOVE</button>
         </div>
         ))
@@ -43,4 +43,4 @@ const CartBody=()=>{
     </div>
 )
 }
-export default CartBody;
+export default CartForm;

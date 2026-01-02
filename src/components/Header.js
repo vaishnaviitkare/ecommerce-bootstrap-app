@@ -2,8 +2,10 @@ import React, {useContext} from "react";
 import './Header.css';
 import { ModalCon } from "../Context/ModalContext";
 import { Navbar, Nav, Container, Button} from "react-bootstrap";
+import { DataCon } from "../Context/DataContext";
 const Header=(props)=>{
-const {openModal}=useContext(ModalCon);
+const {openModal}=useContext(ModalCon);                                                           
+const {data}=useContext(DataCon);
    return(
     <div className="div1">
     <Navbar className="navb" bg="dark" variant="dark" expand="md" fixed="top"> 
@@ -28,9 +30,9 @@ const {openModal}=useContext(ModalCon);
           className="position-absolute end-0 me-4"
           onClick={openModal}
         >
-          cart <span className="ms-1">0</span>
+          cart 
         </Button>
-
+        <span className="cart-button">{data.length}</span>
       </Container>
     </Navbar>
   </div>
