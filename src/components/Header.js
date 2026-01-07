@@ -1,40 +1,54 @@
 import React, {useContext} from "react";
 import './Header.css';
 import { ModalCon } from "../Context/ModalContext";
-import { Navbar, Nav, Container, Button} from "react-bootstrap";
+import { Button} from "react-bootstrap";
 import { DataCon } from "../Context/DataContext";
+import { NavLink } from "react-router-dom";
 const Header=(props)=>{
 const {openModal}=useContext(ModalCon);                                                           
 const {data}=useContext(DataCon);
    return(
     <div className="div1">
-    <Navbar className="navb" bg="dark" variant="dark" expand="md" fixed="top"> 
-      <Container fluid className="px-2">
-        
         {/* Center Menu */}
-        <Nav className="mx-auto">
-          <Nav.Link href="#home" className="px-5 text-uppercase header-font">
-            Home
-          </Nav.Link>
-          <Nav.Link href="#store" className="px-5 text-uppercase header-font">
-            Store
-          </Nav.Link>
-          <Nav.Link href="#about" className="px-5 text-uppercase header-font">
-            About
-          </Nav.Link>
-        </Nav>
+      <nav className="navb">
+      <NavLink
+        to="/home"
+        className={({ isActive }) =>
+          `nav-item ${isActive ? "active" : ""}`
+        }
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        to="/store"
+       className={({ isActive }) =>
+          `nav-item ${isActive ? "active" : ""}`
+        }
+      >
+        Store
+      </NavLink>
+
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          `nav-item ${isActive ? "active" : ""}`
+        }
+      >
+        About
+      </NavLink>
 
         {/* Cart Button Right */}
+        <div className="cart-wrapper">
         <Button
           variant="outline-info"
-          className="position-absolute end-0 me-4"
           onClick={openModal}
         >
           cart 
         </Button>
         <span className="cart-button">{data.length}</span>
-      </Container>
-    </Navbar>
+        </div>
+        </nav>
   </div>
    )
 }

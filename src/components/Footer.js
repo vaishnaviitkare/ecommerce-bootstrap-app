@@ -3,7 +3,7 @@ import { CardFooter,Container,Row,Col } from "react-bootstrap";
 import { FaYoutube,FaSpotify,FaFacebook } from "react-icons/fa";
 const Footer=()=>{
  return (
-    <footer style={{ backgroundColor: "#56CCF2" }}>
+    <footer style={{ backgroundColor: "#56CCF2" }} >
       <Container>
         <Row className="align-items-center py-4">
           

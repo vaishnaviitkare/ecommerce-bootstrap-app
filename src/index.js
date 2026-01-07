@@ -1,23 +1,53 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { ModalContext } from './Context/ModalContext';
-import { DataContext } from './Context/DataContext';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { ModalContext } from "./Context/ModalContext";
+import { DataContext } from "./Context/DataContext";
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
 
+// pages
+import Home from "./Navigation/Home";
+import Store from "./Navigation/Store";
+import About from "./Navigation/About";
+import Layout from "./Layout/Layout";
+import LayoutMain from "./Layout/LayoutMain";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter([
+  {
+    path: "/",
+    children: [
+      // Store layout
+      {
+        element: <LayoutMain />, // HeaderStore
+        children: [
+          { index: true, element: <Store /> },
+          { path: "store", element: <Store /> }
+        ]
+      },
+
+      // Common layout
+      {
+        element: <Layout />, // HeaderCommon
+        children: [
+          { path: "home", element: <Home /> },
+          { path: "about", element: <About /> }
+        ]
+      }
+    ]
+  }
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <DataContext>
-    <ModalContext>
-    <App />
-    </ModalContext>
+      <ModalContext>
+        <RouterProvider router={router} />
+      </ModalContext>
     </DataContext>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-
