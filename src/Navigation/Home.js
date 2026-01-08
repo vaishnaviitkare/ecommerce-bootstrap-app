@@ -1,9 +1,33 @@
-const Home=()=>{
-    return(
-        <div>
-        
+import "./Home.css";
 
+const tours = [
+  { date: "JUL 16", city: "DETROIT, MI", venue: "DTE ENERGY MUSIC THEATRE" },
+  { date: "JUL 19", city: "TORONTO, ON", venue: "BUDWEISER STAGE" },
+  { date: "JUL 22", city: "BRISTOW, VA", venue: "JIGGY LUBE LIVE" },
+  { date: "JUL 29", city: "PHOENIX, AZ", venue: "AK-CHIN PAVILION" },
+  {date:"AUG 2", city:"LAS VEGAS, NV", venue:"T-MOBILE ARENA"},
+  {date:"AUG 7", city:"CONCORD, CA", venue:"CONCORD PAVILION"}
+];
+
+const Home = () => {
+  return (
+    <div className="tours-container">
+      <h2 className="tours-title">TOURS</h2>
+
+      {tours.map((tour, index) => (
+        <div key={index} className="tour-row">
+            <div className="tour-inner">
+          <div className="tour-date">{tour.date}</div>
+          <div className="tour-city">{tour.city}</div>
+          <div className="tour-venue">{tour.venue}</div>
+          <div className="tour-btn">
+            <button>BUY TICKETS</button>
+          </div>
+          </div>
         </div>
-    )
-}
+      ))}
+    </div>
+  );
+};
+
 export default Home;

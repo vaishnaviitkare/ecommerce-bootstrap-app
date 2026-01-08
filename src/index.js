@@ -15,7 +15,8 @@ import Store from "./Navigation/Store";
 import About from "./Navigation/About";
 import Layout from "./Layout/Layout";
 import LayoutMain from "./Layout/LayoutMain";
-
+import LayoutHome from "./Layout/LayoutHome";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,10 +34,16 @@ const router = createBrowserRouter([
       {
         element: <Layout />, // HeaderCommon
         children: [
-          { path: "home", element: <Home /> },
           { path: "about", element: <About /> }
         ]
+      },
+      {
+        element: <LayoutHome />, 
+        children: [
+          { path: "home", element: <Home /> },
+        ]
       }
+
     ]
   }
 ]);
