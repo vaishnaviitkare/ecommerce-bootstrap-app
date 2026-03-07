@@ -33,6 +33,16 @@ const HeaderCommon=(props)=>{
         About
       </NavLink>
 
+      <NavLink
+              to="/contact_us"
+              className={({ isActive }) =>
+                `nav-item ${isActive ? "active" : ""}`
+              }
+            >
+              Contact Us
+      </NavLink>
+      
+
         </nav>
   </div>
    )

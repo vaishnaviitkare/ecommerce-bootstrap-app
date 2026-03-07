@@ -10,31 +10,30 @@ import {
 } from "react-router-dom";
 
 // pages
-import Home from "./Navigation/Home";
-import Store from "./Navigation/Store";
-import About from "./Navigation/About";
+import Home from "./Navigation_Pages/Home";
+import Store from "./Navigation_Pages/Store";
+import About from "./Navigation_Pages/About";
 import Layout from "./Layout/Layout";
 import LayoutMain from "./Layout/LayoutMain";
 import LayoutHome from "./Layout/LayoutHome";
+import ContactUs from "./Navigation_Pages/ContactUs";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 const router = createBrowserRouter([
   {
     path: "/",
     children: [
-      // Store layout
       {
-        element: <LayoutMain />, // HeaderStore
+        element: <LayoutMain />, 
         children: [
           { index: true, element: <Store /> },
-          { path: "store", element: <Store /> }
+          { path: "store", element: <Store /> },
+          
         ]
-      },
-
-      // Common layout
-      {
-        element: <Layout />, // HeaderCommon
+      },{
+        element: <Layout/>, 
         children: [
-          { path: "about", element: <About /> }
+          { path: "about", element: <About /> },
+          {path:"contact_us", element:<ContactUs/>},
         ]
       },
       {

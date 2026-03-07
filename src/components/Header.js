@@ -38,6 +38,15 @@ const {data}=useContext(DataCon);
         About
       </NavLink>
 
+      <NavLink
+        to="/contact_us"
+        className={({ isActive }) =>
+          `nav-item ${isActive ? "active" : ""}`
+        }
+      >
+        Contact Us
+      </NavLink>
+
         {/* Cart Button Right */}
         <div className="cart-wrapper">
         <Button

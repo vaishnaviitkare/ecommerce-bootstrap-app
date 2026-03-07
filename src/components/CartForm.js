@@ -6,6 +6,7 @@ const CartForm=()=>{
     const {val}=useContext(ModalCon);
     const {closeModal}=useContext(ModalCon);
     const {data}=useContext(DataCon);
+    const {removeFromCart}=useContext(DataCon);
     const totaldata=data.reduce((sum,item)=>{
        return sum+(item.price*item.quantity);
     },0)
@@ -29,7 +30,7 @@ const CartForm=()=>{
         </div>
          <span>${item.price}</span>
          <span>{item.quantity}</span>
-         <button className="remove">REMOVE</button>
+         <button className="remove" onClick={()=>removeFromCart(item.id)}>REMOVE</button>
         </div>
         ))
       }

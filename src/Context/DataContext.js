@@ -58,8 +58,16 @@ const addToCart=(product)=>{
     return [...prevItem,{...product}]
    })
 }
+const removeFromCart=(id)=>{
+    setData((prevItem)=>{
+     
+    return prevItem.filter((item)=>item.id !== id);
+
+    })
+    console.log(data);
+}
 return(
-    <DataCon.Provider value={{data,addToCart,productsArr}}>
+    <DataCon.Provider value={{data,addToCart,productsArr,removeFromCart}}>
         {props.children}
     </DataCon.Provider>
 
