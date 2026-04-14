@@ -2,6 +2,7 @@ import React,{useContext} from "react";
 import "./StoreData.css";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { DataCon } from "../Context/DataContext";
+import { Link } from "react-router-dom";
 const Store = (props) => {
  const {addToCart}=useContext(DataCon);
  const {productsArr}=useContext(DataCon);
@@ -13,16 +14,20 @@ const Store = (props) => {
         {productsArr.map((product) => (
           <Col key={product.id} md={6} className="d-flex justify-content-center product-col">
             <Card style={{ width: "18rem" }} className="text-center border-0">
+              <Link to={`/store/${product.id}`}>
               <Card.Title className="mt-3">
                 {product.title}
               </Card.Title>
+              </Link>
 
+              <Link to={`/store/${product.id}`}>
               <Card.Img
                 variant="top"
                 style={{width:"90%"}}
                 src={product.imageUrl}
                 alt={product.title}
               />
+              </Link>
 
               <Card.Body className="d-flex justify-content-between align-items-center">
                 <span>${product.price}</span>

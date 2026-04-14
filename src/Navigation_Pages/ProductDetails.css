@@ -1,0 +1,29 @@
+.maindiv{
+    display: flex;
+    padding: 20px;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+}
+.smallimg{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+   
+}
+.smallimg img{
+    cursor: pointer;
+    border: 1px solid gray;
+     width:200px;
+}
+.bigimg img{
+    width: 620px;
+    height: 600px;       
+    object-fit: cover;   
+    margin-top: 20px;
+}
+
+.details button{
+  padding: 10px 20px;
+  background-color: orange;
+}

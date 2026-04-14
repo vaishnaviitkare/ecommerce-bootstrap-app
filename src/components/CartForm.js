@@ -3,10 +3,8 @@ import { ModalCon } from "../Context/ModalContext";
 import "./CartForm.css";
 import { DataCon } from "../Context/DataContext";
 const CartForm=()=>{
-    const {val}=useContext(ModalCon);
-    const {closeModal}=useContext(ModalCon);
-    const {data}=useContext(DataCon);
-    const {removeFromCart}=useContext(DataCon);
+    const { val, closeModal } = useContext(ModalCon); 
+  const { data, removeFromCart } = useContext(DataCon); 
     const totaldata=data.reduce((sum,item)=>{
        return sum+(item.price*item.quantity);
     },0)
@@ -25,7 +23,7 @@ const CartForm=()=>{
         data.map((item)=>(
          <div className="cart-row" key={item.id}>
         <div className="cart-item">
-         <img src={item.imageUrl} alt={item.title} />
+          <img src={item.imageUrl}/>
          <span>{item.title}</span>
         </div>
          <span>${item.price}</span>

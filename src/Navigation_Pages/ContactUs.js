@@ -17,6 +17,7 @@ const ContactUs=()=>{
 
     const submitHandler=async(e)=>{
         e.preventDefault();
+        try{
         const response=await fetch("https://contact-data-c2d0a-default-rtdb.firebaseio.com/contact.json",{
             method:"POST",
             body:JSON.stringify(formData),
@@ -24,7 +25,22 @@ const ContactUs=()=>{
       'Content-Type':'application/json'
     }
         })
+
+        if (!response.ok) {
+      throw new Error("Something went wrong");
     }
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+    });
+
+}catch(error){
+console.log(error);
+}
+  }
+
     return(
         <div className="maindiv">
 

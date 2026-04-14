@@ -17,6 +17,7 @@ import Layout from "./Layout/Layout";
 import LayoutMain from "./Layout/LayoutMain";
 import LayoutHome from "./Layout/LayoutHome";
 import ContactUs from "./Navigation_Pages/ContactUs";
+import ProductDetails from "./Navigation_Pages/ProductDetails";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Store /> },
           { path: "store", element: <Store /> },
+          {path:"store/:id", element:<ProductDetails/>},
           
         ]
       },{
@@ -42,7 +44,6 @@ const router = createBrowserRouter([
           { path: "home", element: <Home /> },
         ]
       }
-
     ]
   }
 ]);
