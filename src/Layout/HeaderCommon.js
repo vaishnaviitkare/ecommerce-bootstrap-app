@@ -1,7 +1,9 @@
 import React, {useContext} from "react";
 import '../components/Header.css';
 import { NavLink } from "react-router-dom";
+import AuthContext from "../Context/auth-context";
 const HeaderCommon=(props)=>{
+  const authCtx=useContext(AuthContext);
    return(
     <div className="div1">
         {/* Center Menu */}
@@ -14,7 +16,7 @@ const HeaderCommon=(props)=>{
       >
         Home
       </NavLink>
-
+      {authCtx.isLoggedIn && (<li>
       <NavLink
         to="/store"
        className={({ isActive }) =>
@@ -23,7 +25,7 @@ const HeaderCommon=(props)=>{
       >
         Store
       </NavLink>
-
+          </li>)} 
       <NavLink
         to="/about"
         className={({ isActive }) =>
@@ -40,6 +42,15 @@ const HeaderCommon=(props)=>{
               }
             >
               Contact Us
+      </NavLink>
+
+      <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `nav-item ${isActive ? "active" : ""}`
+              }
+            >
+             Login
       </NavLink>
       
 

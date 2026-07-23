@@ -4,9 +4,13 @@ import { ModalCon } from "../Context/ModalContext";
 import { Button} from "react-bootstrap";
 import { DataCon } from "../Context/DataContext";
 import { NavLink } from "react-router-dom";
+import AuthContext from "../Context/auth-context";
 const Header=(props)=>{
 const {openModal}=useContext(ModalCon);                                                           
 const {data}=useContext(DataCon);
+const authCtx=useContext(AuthContext);
+console.log(authCtx.isLoggedIn);
+console.log(authCtx.token);
    return(
     <div className="div1">
         {/* Center Menu */}
@@ -19,7 +23,7 @@ const {data}=useContext(DataCon);
       >
         Home
       </NavLink>
-
+      {authCtx.isLoggedIn && (<li>
       <NavLink
         to="/store"
        className={({ isActive }) =>
@@ -28,7 +32,7 @@ const {data}=useContext(DataCon);
       >
         Store
       </NavLink>
-
+      </li>)}
       <NavLink
         to="/about"
         className={({ isActive }) =>
@@ -46,6 +50,15 @@ const {data}=useContext(DataCon);
       >
         Contact Us
       </NavLink>
+
+      <NavLink
+                    to="/login"
+                    className={({ isActive }) =>
+                      `nav-item ${isActive ? "active" : ""}`
+                    }
+                  >
+                   Login
+            </NavLink>
 
         {/* Cart Button Right */}
         <div className="cart-wrapper">

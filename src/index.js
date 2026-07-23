@@ -19,6 +19,8 @@ import LayoutHome from "./Layout/LayoutHome";
 import ContactUs from "./Navigation_Pages/ContactUs";
 import ProductDetails from "./Navigation_Pages/ProductDetails";
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Login from "./Navigation_Pages/Login";
+import { AuthContextProvider } from "./Context/auth-context";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,7 +28,6 @@ const router = createBrowserRouter([
       {
         element: <LayoutMain />, 
         children: [
-          { index: true, element: <Store /> },
           { path: "store", element: <Store /> },
           {path:"store/:id", element:<ProductDetails/>},
           
@@ -36,11 +37,13 @@ const router = createBrowserRouter([
         children: [
           { path: "about", element: <About /> },
           {path:"contact_us", element:<ContactUs/>},
+          {path:"login", element:<Login/>},
         ]
       },
       {
         element: <LayoutHome />, 
         children: [
+          { index: true, element: <Home/> },
           { path: "home", element: <Home /> },
         ]
       }
@@ -51,10 +54,12 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <AuthContextProvider>
     <DataContext>
       <ModalContext>
         <RouterProvider router={router} />
       </ModalContext>
     </DataContext>
+    </AuthContextProvider>
   </React.StrictMode>
 );
