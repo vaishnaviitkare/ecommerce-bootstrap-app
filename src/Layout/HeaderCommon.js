@@ -16,7 +16,7 @@ const HeaderCommon=(props)=>{
       >
         Home
       </NavLink>
-      {authCtx.isLoggedIn && (<li>
+      
       <NavLink
         to="/store"
        className={({ isActive }) =>
@@ -25,7 +25,7 @@ const HeaderCommon=(props)=>{
       >
         Store
       </NavLink>
-          </li>)} 
+          
       <NavLink
         to="/about"
         className={({ isActive }) =>

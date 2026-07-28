@@ -3,7 +3,7 @@ import "./StoreData.css";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { DataCon } from "../Context/DataContext";
 import { Link } from "react-router-dom";
-const Store = (props) => {
+const StoreData = (props) => {
  const {addToCart}=useContext(DataCon);
  const {productsArr}=useContext(DataCon);
   return (
@@ -41,4 +41,4 @@ const Store = (props) => {
   );
 };
 
-export default Store;
+export default StoreData;
