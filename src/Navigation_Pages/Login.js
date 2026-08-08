@@ -52,7 +52,7 @@ const submitHandler = (event) => {
          })
      }
       }).then(data=>{
-        authCtx.login(data.idToken);
+        authCtx.login(data.idToken,enteredEmail);
         isLogin && navigate('/store');
       })
         .catch(err=>{
